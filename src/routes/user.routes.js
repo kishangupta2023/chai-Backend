@@ -44,7 +44,7 @@ router.route("/update-account").patch(verifyJWT, updateAccountDetails)
 // upload is the second middleware and we need a single file so single is used 
 router.route("/avatar").patch(verifyJWT, upload.single("avatar"), updateUserAvatar)
 router.route("/cover-image").patch(verifyJWT, upload.single("coverImage"), updateUserCoverImage)
-
+// we are taking from params so /c or channel/ then colon then username 
 router.route("/c/:username").get(verifyJWT, getUserChannelProfile)
 router.route("/history").get(verifyJWT, getWatchHistory)
 
